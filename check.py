@@ -1,12 +1,20 @@
-try:
-    from puresnmp import get
-except ImportError:
-    print('\033[36m pip3 install puresnmp \033[0m\n')
-    break
 import sys
 import os
 import re
 import struct
+try:
+    from puresnmp import get
+except ImportError:
+    print('\033[31mNo puresnmp lib, to install: \033[0m\n')
+    print('\033[36m pip3 install puresnmp \033[0m\n')
+    try:
+        sys.exit(1) # Or something that calls sys.exit()
+    except SystemExit as e:
+        sys.exit(e)
+    except:
+    # Cleanup and reraise. This will print a backtrace.
+    # (Insert your cleanup code here.)
+        raise
 
 file=sys.argv[1]
 os.system("clear")
