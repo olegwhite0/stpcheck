@@ -2,7 +2,7 @@ try:
     from puresnmp import get
 except ImportError:
     print('\033[36m pip3 install puresnmp \033[0m\n')
-    pass
+    break
 import sys
 import os
 import re
