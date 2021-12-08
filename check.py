@@ -1,4 +1,8 @@
-from puresnmp import get
+try:
+    from puresnmp import get
+except ImportError:
+    print('\033[36m pip3 install puresnmp \033[0m\n')
+    pass
 import sys
 import os
 import re
@@ -15,7 +19,6 @@ sys.stdout.write('+----------------------------+\033[0m\n')
 COMMUNITY="public"
 
 #END_DEFINE_VARS
-
 def typedev(ip):
     OID = '1.3.6.1.2.1.1.1.0'
     try:
