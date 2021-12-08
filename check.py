@@ -2,11 +2,18 @@ import sys
 import os
 import re
 import struct
+
+file=sys.argv[1]
+os.system("clear")
 try:
     from puresnmp import get
 except ImportError:
-    print('\033[31mNo puresnmp lib, to install: \033[0m\n')
-    print('\033[36m pip3 install puresnmp \033[0m\n')
+    sys.stdout.write('\033[36m')
+    print('No puresnmp lib, to install: ')
+    sys.stdout.write('\033[0m\n')
+    sys.stdout.write('\033[31m')
+    print('pip3 install puresnmp \033[0m\n')
+    sys.stdout.write('\033[0m\n')
     try:
         sys.exit(1) # Or something that calls sys.exit()
     except SystemExit as e:
@@ -15,9 +22,6 @@ except ImportError:
     # Cleanup and reraise. This will print a backtrace.
     # (Insert your cleanup code here.)
         raise
-
-file=sys.argv[1]
-os.system("clear")
 sys.stdout.write('\033[36m')
 sys.stdout.write('+----------------------------+\n')
 sys.stdout.write('|    SNMP CHECK STP PARAM    |\n')
